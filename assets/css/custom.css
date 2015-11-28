@@ -1,0 +1,9 @@
+#logo a{
+	background-image: url(../../images/SKY_NATURE_LOGO.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	height: 90px;
+	width: 240px;
+}
+#logo{ padding: 5px 0; }
