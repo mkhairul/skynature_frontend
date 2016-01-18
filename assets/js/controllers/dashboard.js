@@ -2,7 +2,7 @@ app.controller('DashboardController',
   ['$window', '$scope', '$rootScope', '$interval', 'colorService', '$http', 'angularLoad', '$timeout',
   function($window, $scope, $rootScope, $interval, colorService, $http, angularLoad, $timeout){
 
-  $rootScope.pageTitle = 'Dashboard';
+  $rootScope.pageTitle = 'Homepage';
 
 		
 	$timeout(function(){
