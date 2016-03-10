@@ -18,6 +18,8 @@ var app = angular.module('materialism', [
   'ui.select',
 	
 	'angularLoad',
+  
+  'slick',
 
   'gridshore.c3js.chart',
   'monospaced.elastic',     // resizable textarea

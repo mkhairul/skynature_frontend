@@ -88,7 +88,7 @@
 				<div class="container clearfix">
 
 					<div class="col_two_third bottommargin-lg">
-
+            <!--
 						<div class="fslider" data-arrows="false">
 							<div class="flexslider">
 								<div class="slider-wrap">
@@ -101,6 +101,12 @@
 								</div>
 							</div>
 						</div>
+            -->
+            <slick init-onload=true data="products" dots=true slides-to-scroll=1>
+              <div class="slider-container" ng-repeat="row in products track by $index">
+                <img ng-src="http://admin.skynatures.com/uploads/{{row.images[0].name}}" />
+              </div>
+            </slick>
 					</div>
 
 					<div class="col_one_third bottommargin-lg col_last">
