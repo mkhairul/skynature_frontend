@@ -15,7 +15,12 @@ app.controller('DashboardController',
         });
       }, 2000)
     }
-  })	
+  })
+  
+  $http.get('http://admin.skynatures.com/auth/user')
+  .success(function(data){
+    console.log(data);
+  })
   
   $http.get('http://admin.skynatures.com/products')
 	.success(function(data){
@@ -25,5 +30,27 @@ app.controller('DashboardController',
 	})
 	.error(function(){
 	});
+    
+  $scope.login = {};
+    
+  $scope.manual_login = function(){
+    console.log('login');
+    $http.post('http://admin.skynatures.com/auth/manual_login', $scope.login)
+    .success(function(data){
+      $rootScope.logged_in = true;
+      $scope.user_detail = data.user;
+      console.log(data);
+    })
+    .error(function(data){
+      console.log(data);
+    })
+  }
+  
+  $scope.main_images = true;
+  
+  $scope.viewDownline = function(){
+    $scope.main_images = false;
+    $scope.view_connections = true;
+  }
 
 }]);

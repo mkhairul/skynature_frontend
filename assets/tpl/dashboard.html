@@ -10,7 +10,7 @@
 
 			<div class="col_half nobottommargin hidden-xs">
 
-				<p class="nobottommargin"><strong>Call:</strong> 1800-547-2145 | <strong>Email:</strong> info@canvas.com</p>
+				<p class="nobottommargin"><strong>Email:</strong> info@skynatures.com</p>
 
 			</div>
 
@@ -20,16 +20,17 @@
 				============================================= -->
 				<div class="top-links">
 					<ul>
-						<li><a href>Login</a>
+						<li ng-if="logged_in == false || logged_in == undefined">
+              <a href>Login</a>
 							<div class="top-link-section">
-								<form id="top-login" role="form">
+								<form id="top-login" role="form" ng-submit="manual_login()">
 									<div class="input-group" id="top-login-username">
 										<span class="input-group-addon"><i class="icon-user"></i></span>
-										<input type="email" class="form-control" placeholder="Email address" required="">
+										<input type="email" ng-model="login.email" class="form-control" placeholder="Email address" required="">
 									</div>
 									<div class="input-group" id="top-login-password">
 										<span class="input-group-addon"><i class="icon-key"></i></span>
-										<input type="password" class="form-control" placeholder="Password" required="">
+										<input type="password" ng-model="login.password" class="form-control" placeholder="Password" required="">
 									</div>
 									<label class="checkbox">
 										<input type="checkbox" value="remember-me"> Remember me
@@ -38,6 +39,17 @@
 								</form>
 							</div>
 						</li>
+            <li ng-if="logged_in == true">
+              <a href>Welcome, {{user_detail.name}}</a>
+              <div class="top-link-section">
+                <div>
+                  <a href ng-click="viewDownline()">View Downline</a>
+                </div>
+                <div>
+                  <a href ng-click="logout()">Logout</a>
+                </div>
+              </div>
+            </li>
 					</ul>
 				</div><!-- .top-links end -->
 
@@ -85,7 +97,7 @@
 
 			<div class="content-wrap">
 
-				<div class="container clearfix">
+				<div class="container clearfix" ng-if="main_images == true">
 
 					<div class="col_two_third bottommargin-lg">
             <!--
@@ -119,6 +131,11 @@
 					</div>
 					<div class="clear"></div>
 				</div>
+        
+        
+        <div class="container clearfix" ng-if="view_connections == true">
+          <div ng-include src="'assets/tpl/partials/connections.html'"></div>
+        </div>
 
 				
 
@@ -165,7 +182,7 @@
 
 					<div class="col_two_third">
 
-						<div class="col_one_third">
+						<div class="col_half">
 
 							<div class="widget clearfix">
 
@@ -176,80 +193,43 @@
 								<div style="background: url('images/world-map.png') no-repeat center center; background-size: 100%;">
 									<address>
 										<strong>Headquarters:</strong><br>
-										795 Folsom Ave, Suite 600<br>
-										San Francisco, CA 94107<br>
+                    SKYNATURE GLOBAL SDN BHD (1160504-M)<br>
+                    68A, Lorong Sanggul 1E,<br/>
+                    Bandar Puteri,  41200 Klang, <br/>
+                    Selangor, Malaysia.<br/>
 									</address>
-									<abbr title="Phone Number"><strong>Phone:</strong></abbr> (91) 8547 632521<br>
-									<abbr title="Fax"><strong>Fax:</strong></abbr> (91) 11 4752 1433<br>
-									<abbr title="Email Address"><strong>Email:</strong></abbr> info@canvas.com
+									<abbr title="Phone Number"><strong>Phone:</strong></abbr> -<br>
+									<abbr title="Fax"><strong>Fax:</strong></abbr> -<br>
+									<abbr title="Email Address"><strong>Email:</strong></abbr> info@skynatures.com
 								</div>
 
 							</div>
 
 						</div>
 
-						<div class="col_one_third">
+						<div class="col_half col_last">
 
 							<div class="widget widget_links clearfix">
-
-								<h4>Blogroll</h4>
-
-								<ul>
-									<li><a href="http://codex.wordpress.org/">Documentation</a></li>
-									<li><a href="http://wordpress.org/support/forum/requests-and-feedback">Feedback</a></li>
-									<li><a href="http://wordpress.org/extend/plugins/">Plugins</a></li>
-									<li><a href="http://wordpress.org/support/">Support Forums</a></li>
-									<li><a href="http://wordpress.org/extend/themes/">Themes</a></li>
-									<li><a href="http://wordpress.org/news/">WordPress Blog</a></li>
-									<li><a href="http://planet.wordpress.org/">WordPress Planet</a></li>
-								</ul>
-
+                  <h4 style="margin-bottom: 5px;">Business Hours</h4>
+                  <p>
+                    <strong>Monday to Friday:</strong> <br/>10:00am - 6:30pm<br/>
+                    <strong>Saturday, Sunday &amp; Public Holiday: </strong> <br/>Off
+                  </p>
+							</div>
+              
+              <div class="widget widget_links clearfix">
+                  <h4 style="margin-bottom: 5px;">Company Bank Detail</h4>
+                  <p>
+                    <strong>Company Name:</strong> <br/>SkyNature Global Sdn Bhd<br/>
+                    <strong>Bank Name:</strong> <br/>CIMB Bank<br/>
+                    <strong>Bank account:</strong> <br/>8007756607<br/>
+                    <strong>Bank Branch:</strong> <br/>CIMB USJ Taipan<br/>
+                  </p>
 							</div>
 
 						</div>
 
-						<div class="col_one_third col_last">
-
-							<div class="widget clearfix">
-								<h4>Recent Posts</h4>
-
-								<div id="post-list-footer">
-									<div class="spost clearfix">
-										<div class="entry-c">
-											<div class="entry-title">
-												<h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-											</div>
-											<ul class="entry-meta">
-												<li>10th July 2014</li>
-											</ul>
-										</div>
-									</div>
-
-									<div class="spost clearfix">
-										<div class="entry-c">
-											<div class="entry-title">
-												<h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
-											</div>
-											<ul class="entry-meta">
-												<li>10th July 2014</li>
-											</ul>
-										</div>
-									</div>
-
-									<div class="spost clearfix">
-										<div class="entry-c">
-											<div class="entry-title">
-												<h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-											</div>
-											<ul class="entry-meta">
-												<li>10th July 2014</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
+						
 
 					</div>
 
@@ -259,70 +239,22 @@
 
 							<div class="row">
 
-								<div class="col-md-6 bottommargin-sm">
-									<div class="counter counter-small"><span data-from="50" data-to="15065421" data-refresh-interval="80" data-speed="3000" data-comma="true"></span></div>
-									<h5 class="nobottommargin">Total Downloads</h5>
-								</div>
-
-								<div class="col-md-6 bottommargin-sm">
-									<div class="counter counter-small"><span data-from="100" data-to="18465" data-refresh-interval="50" data-speed="2000" data-comma="true"></span></div>
-									<h5 class="nobottommargin">Clients</h5>
-								</div>
-
+								<h4>About Us</h4>
+                <p>Kejayaan dan kebahagiaan merupakan impian setiap individu yg lahir kedunia ini. dengan ini, sky nature memberikan satu peluang yg julung kali nya diberikan, yakni sebuah platform utk para rakan niaga mencapai setiap impian mereka. Dengan cara, teknik, ilmu, masa dan juga strategi yg telah dirancang secara teliti, setiap individu barupaya untuk berjaya dlm masa yg singkat dan berterusan secara stabil dan pasif.</p>
+                <p>Walaupun kita hidup dlm dunia serba moden, pelbagai masalah seperti masalah kesihatan, kecantikan telah wujud akibat pemakanan yg tidak sehat, masalah keadaan sekitar yg kotor dan wujud juga masalah tiada masa bg menguruskan keadaan diri sendiri.  </p>
+                <p>Skynature menyediakan pelbagai jenis produk kesihatan & kecantikan agar setiap insan dpt merasekan keadaan kesihatan tubuh badan yg optimum serta dapat merasakan apakah erti sebenar apabila menjadi cantik dan sihat. dengan bercirikan “nature” yakni alam semulajadi, skynature menyediakan produk berasaskan bahan semulajadi dlm bahan utama produk, Kami juga menggunakan teknologi yg terbaru dlm penghasilan produk yg berkualiti tinggi serta berharga mampu milik.</p>
+                
 							</div>
-
-						</div>
-
-						<div class="widget subscribe-widget clearfix">
-							<h5><strong>Subscribe</strong> to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</h5>
-							<div id="widget-subscribe-form-result" data-notify-type="success" data-notify-msg=""></div>
-							<form id="widget-subscribe-form" action="include/subscribe.php" role="form" method="post" class="nobottommargin">
-								<div class="input-group divcenter">
-									<span class="input-group-addon"><i class="icon-email2"></i></span>
-									<input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-									<span class="input-group-btn">
-										<button class="btn btn-success" type="submit">Subscribe</button>
-									</span>
-								</div>
-							</form>
-							<script type="text/javascript">
-								$("#widget-subscribe-form").validate({
-									submitHandler: function(form) {
-										$(form).find('.input-group-addon').find('.icon-email2').removeClass('icon-email2').addClass('icon-line-loader icon-spin');
-										$(form).ajaxSubmit({
-											target: '#widget-subscribe-form-result',
-											success: function() {
-												$(form).find('.input-group-addon').find('.icon-line-loader').removeClass('icon-line-loader icon-spin').addClass('icon-email2');
-												$('#widget-subscribe-form').find('.form-control').val('');
-												$('#widget-subscribe-form-result').attr('data-notify-msg', $('#widget-subscribe-form-result').html()).html('');
-												SEMICOLON.widget.notifications($('#widget-subscribe-form-result'));
-											}
-										});
-									}
-								});
-							</script>
-						</div>
-
-						<div class="widget clearfix" style="margin-bottom: -20px;">
-
-							<div class="row">
-
-								<div class="col-md-6 clearfix bottommargin-sm">
-									<a href="#" class="social-icon si-dark si-colored si-facebook nobottommargin" style="margin-right: 10px;">
-										<i class="icon-facebook"></i>
-										<i class="icon-facebook"></i>
-									</a>
-									<a href="#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
-								</div>
-								<div class="col-md-6 clearfix">
-									<a href="#" class="social-icon si-dark si-colored si-rss nobottommargin" style="margin-right: 10px;">
-										<i class="icon-rss"></i>
-										<i class="icon-rss"></i>
-									</a>
-									<a href="#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to RSS Feeds</small></a>
-								</div>
-
-							</div>
+              
+              <div class="row">
+                <h4>Visi</h4>
+                <p>Membawa jenama sky nature ke serata dunia</p>
+              </div>
+              
+              <div class="row">
+                <h4>Misi</h4>
+                <p>Memberikan peluang perniagaan, menjadikan setiap rakan usahawan berupaya memperoleh jualan yg mantap serta sentiase mempertingkatkn layanan kepada pelanggan, rakan usahawan dan para pekerja.</p>
+              </div>
 
 						</div>
 
@@ -339,7 +271,7 @@
 				<div class="container clearfix">
 
 					<div class="col_half">
-						Copyrights &copy; 2014 All Rights Reserved by Canvas Inc.<br>
+						Copyrights &copy; 2016 All Rights Reserved by Canvas Inc.<br>
 						<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="#">Privacy Policy</a></div>
 					</div>
 
@@ -388,7 +320,7 @@
 
 						<div class="clear"></div>
 
-						<i class="icon-envelope2"></i> info@canvas.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +91-11-6541-6369 <span class="middot">&middot;</span> <i class="icon-skype2"></i> CanvasOnSkype
+						<i class="icon-envelope2"></i> info@skynatures.com <span class="middot">&middot;</span>
 					</div>
 
 				</div>
