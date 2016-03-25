@@ -8,4 +8,10 @@
 }
 #logo{ padding: 5px 0; }
 
-.slider-container{ width: 745px; height: 488px; }
+.slider-container{ width: 745px; height: 530px; }
+.slider-container .desc span{ display: inline-block; margin-right: 5px;   }
+#tree-container{
+  width: 100%;
+  min-height: 500px;
+  
+}

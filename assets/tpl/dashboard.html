@@ -46,6 +46,9 @@
                   <a href ng-click="viewDownline()">View Downline</a>
                 </div>
                 <div>
+                  <a href ng-click="viewCommissions()">View Commissions</a>
+                </div>
+                <div>
                   <a href ng-click="logout()">Logout</a>
                 </div>
               </div>
@@ -117,6 +120,9 @@
             <slick init-onload=true data="products" dots=true slides-to-scroll=1>
               <div class="slider-container" ng-repeat="row in products track by $index">
                 <img ng-src="http://admin.skynatures.com/uploads/{{row.images[0].name}}" />
+                <span class="desc">
+                  <span>{{row.name}}</span><span>&middot;</span><span>RM{{row.price}}</span>
+                </span>
               </div>
             </slick>
 					</div>
@@ -135,6 +141,10 @@
         
         <div class="container clearfix" ng-if="view_connections == true">
           <div ng-include src="'assets/tpl/partials/connections.html'"></div>
+        </div>
+        
+        <div class="container clearfix" ng-if="view_commission == true">
+          <div ng-include src="'assets/tpl/partials/commission.html'"></div>
         </div>
 
 				
