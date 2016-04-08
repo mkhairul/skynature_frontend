@@ -56,8 +56,10 @@
 <body class="no-transition stretched device-lg" ng-controller="MainController" scroll-spy id="top" class="stretched" ng-class="[theme.template, theme.color]">
   <main>
     <div class="main-container">
-      <!--<div ng-include src="'assets/tpl/partials/topnav.html'"></div>-->
+      <div ng-include src="'assets/tpl/partials/topnav.html'"></div>
       <div class="main-content" autoscroll="true" ng-cloak ng-view bs-affix-target init-ripples></div>
+      <div ng-include src="'assets/tpl/partials/social-sticky.html'"></div>
+      <div ng-include src="'assets/tpl/partials/footer.html'"></div>
     </div>
   </main>
   
@@ -154,8 +156,7 @@
   <script charset="utf-8" src="assets/js/controllers/upload.js"></script>
   <script charset="utf-8" src="assets/js/controllers/tables/basic.js"></script>
   <script charset="utf-8" src="assets/js/controllers/tables/data.js"></script>
-  <script charset="utf-8" src="assets/js/controllers/apps/crud.js"></script>
-  <script charset="utf-8" src="assets/js/controllers/apps/todo.js"></script>
+  <script charset="utf-8" src="assets/js/controllers/about.js"></script>
   <!-- endbuild -->
 </body>
 </html>

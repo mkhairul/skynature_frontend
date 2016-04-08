@@ -1,6 +1,6 @@
 app.controller('DashboardController',
-  ['$window', '$scope', '$rootScope', '$interval', 'colorService', '$http', 'angularLoad', '$timeout',
-  function($window, $scope, $rootScope, $interval, colorService, $http, angularLoad, $timeout){
+  ['$window', '$scope', '$rootScope', '$interval', 'colorService', '$http', 'angularLoad', '$timeout', '$routeParams',
+  function($window, $scope, $rootScope, $interval, colorService, $http, angularLoad, $timeout, $routeParams){
 
   $rootScope.pageTitle = 'Homepage';
     

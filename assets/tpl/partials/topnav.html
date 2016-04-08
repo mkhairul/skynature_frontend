@@ -1,34 +1,95 @@
-<nav class="navbar navbar-default navbar-fixed-top" ng-class="{scroll: (scroll>10)}">
-  <div class="container-fluid">
-    <div class="navbar-header pull-left">
-      <button type="button" class="navbar-toggle pull-left m-15" data-activates=".sidebar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <ul class="breadcrumb">
-        <li><a href="#/">Materialism</a></li>
-        <li ng-bind="pageTitle" class="active">Loading..</li>
-      </ul>
-    </div>
+<!-- Document Wrapper
+============================================= -->
+<div id="wrapper" class="clearfix">
 
-    <ul class="nav navbar-nav navbar-right navbar-right-no-collapse">
-      <li class="dropdown pull-right">
-        <button class="dropdown-toggle pointer btn btn-round-sm btn-link withoutripple" bs-dropdown
-                data-template="assets/tpl/partials/dropdown-navbar.html" data-animation="mat-grow-top-right">
-          <i class="md md-more-vert f20"></i>
-        </button>
-      </li>
-      <li class="dropdown pull-right">
-        <button class="dropdown-toggle pointer btn btn-round-sm btn-link withoutripple" bs-dropdown
-                data-template="assets/tpl/partials/theme-picker.html"
-                analytics-on="click" analytics-category="Themepicker" analytics-event="Open">
-          <i class="md md-settings f20"></i>
-        </button>
-      </li>
+	<!-- Top Bar
+	============================================= -->
+	<div id="top-bar">
 
-      <li navbar-search class="pull-right"></li>
-    </ul>
-  </div>
-</nav>
+		<div class="container clearfix">
+
+			<div class="col_half nobottommargin hidden-xs">
+
+				<p class="nobottommargin"><strong>Email:</strong> skynatureglobal@yahoo.com</p>
+
+			</div>
+
+			<div class="col_half col_last fright nobottommargin">
+
+				<!-- Top Links
+				============================================= -->
+				<div class="top-links">
+					<ul>
+						<li ng-if="logged_in == false || logged_in == undefined">
+              <a href>Login</a>
+							<div class="top-link-section">
+								<form id="top-login" role="form" ng-submit="manual_login()">
+									<div class="input-group" id="top-login-username">
+										<span class="input-group-addon"><i class="icon-user"></i></span>
+										<input type="email" ng-model="login.email" class="form-control" placeholder="Email address" required="">
+									</div>
+									<div class="input-group" id="top-login-password">
+										<span class="input-group-addon"><i class="icon-key"></i></span>
+										<input type="password" ng-model="login.password" class="form-control" placeholder="Password" required="">
+									</div>
+									<label class="checkbox">
+										<input type="checkbox" value="remember-me"> Remember me
+									</label>
+									<button class="btn btn-danger btn-block" type="submit">Sign in</button>
+								</form>
+							</div>
+						</li>
+            <li ng-if="logged_in == true">
+              <a href>Welcome, {{user_detail.name}}</a>
+              <div class="top-link-section">
+                <div>
+                  <a href ng-click="viewDownline()">View Downline</a>
+                </div>
+                <div>
+                  <a href ng-click="viewCommissions()">View Commissions</a>
+                </div>
+                <div>
+                  <a href ng-click="logout()">Logout</a>
+                </div>
+              </div>
+            </li>
+					</ul>
+				</div><!-- .top-links end -->
+
+			</div>
+
+		</div>
+
+		</div><!-- #top-bar end -->
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="sticky-style-2">
+
+			<div class="container clearfix">
+
+				<!-- Logo
+				============================================= -->
+				<div id="logo">
+					<a href="index.html" class="standard-logo" data-dark-logo="images/SKY_NATURE_LOGO.jpg"></a>
+					<a href="index.html" class="retina-logo" data-dark-logo="images/SKY_NATURE_LOGO.jpg"></a>
+				</div><!-- #logo end -->
+
+				<ul class="header-extras">
+					<li>
+						
+					</li>
+				</ul>
+
+			</div>
+
+			<div id="header-wrap">
+
+				<!-- Primary Navigation
+				============================================= -->
+				<nav id="primary-menu" class="style-2" ng-include src="'assets/tpl/partials/menu.html'">
+				</nav><!-- #primary-menu end -->
+
+			</div>
+
+		</header><!-- #header end -->
